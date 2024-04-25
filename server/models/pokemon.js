@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const pokemonSchema = new Schema({
     name: {type: String, required: true},
-    type: [{type: Schema.Types.ObjectId, ref: 'Type', required: true}],
+    type: [{type: Schema.Types.ObjectId, ref: "Type", required: true}],
     hp: {type: Number, required: true},
     attack: {type: Number, required: true},
     defense: {type: Number, required: true},
@@ -14,5 +14,5 @@ const pokemonSchema = new Schema({
     image: {type: String, required: true}
 })
 
-module.exports = mongoose.model('Pokemon', pokemonSchema)
+module.exports = mongoose.model('Pokemon', pokemonSchema, 'Pokemon')
 

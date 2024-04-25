@@ -1,12 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const pokemonController = require('../controllers/pokemonController')
 
-router.get('/', (req, res) => {
-    res.json({mssg: 'get all pokemon'})
-})
+router.get('/', pokemonController.getAllPokemon)
 
-router.get('/:id', (req, res) => {
-    res.json({mssg: 'get specific pokemon'})
-})
+router.get('/:name', pokemonController.getOnePokemon)
 
 module.exports = router

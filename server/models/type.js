@@ -20,4 +20,4 @@ const typeSchema = new Schema({
     damageFromDragon: {type: Number}    
 })
 
-module.exports = mongoose.model('Type', typeSchema)
+module.exports = mongoose.model('Type', typeSchema, 'Types')

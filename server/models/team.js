@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const teamSchema = new Schema({
-    members: [{type: Schema.Types.ObjectId, ref: 'Pokemon'}]
+    name: {type: String},
+    members: [{type: Schema.Types.ObjectId, ref: "Pokemon"}]
 })
 
-module.exports = mongoose.model('Team', teamSchema)
+module.exports = mongoose.model('Team', teamSchema, 'Teams')

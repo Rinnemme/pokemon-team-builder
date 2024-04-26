@@ -1,7 +1,5 @@
 const Team = require('../models/team')
 
-
-
 exports.createTeam = async (req, res) => {
     const {name, members} = req.body
     try {

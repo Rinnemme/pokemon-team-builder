@@ -1,7 +1,7 @@
 const Pokemon = require('../models/pokemon')
 
 exports.getAllPokemon = async(req,res) => {
-    const pokemon = await Pokemon.find({}).sort({pokedexNumber: 1})
+    const pokemon = await Pokemon.find({}).sort({pokedexNumber: 1}).populate("type")
     res.status(200).json(pokemon)
 }
 

@@ -1,18 +1,18 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
+import { useContext } from 'react'
+import { PokemonContext } from '../context/pokemonContext'
 
 const Home = () => {
-    const [pokemon, setPokemon] = useState(null)
     const [fetchDone, setFetchDone] = useState(false)
-
+    const {pokemon, dispatch} = useContext(PokemonContext) 
+    
     async function fetchPokemon() {
         const response = await fetch('/pokemon')
         const json = await response.json()
-        const parse = Array.from(json)
-
         if (response.ok) {
-            setPokemon(parse)
+            dispatch({type: 'SET_POKEMON',  payload: json})
             setFetchDone(true)
-        }
+        } else throw Error('Fetch failed')
     }
 
     useEffect(() => {

@@ -3,7 +3,7 @@ const Pokemon = require('../models/pokemon')
 
 exports.listTypes = async (req, res) => {
     try {
-        const types = await Type.findOne({})
+        const types = await Type.find({})
         res.status(200).json(types)
     } catch (error) {
         res.status(400).son({error: error.message})

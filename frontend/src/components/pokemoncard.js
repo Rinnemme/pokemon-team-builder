@@ -9,7 +9,7 @@ const PokemonCard = ({p}) => {
     return (
         <>
             <div className = 'card'>
-                <div className = 'card-header' onClick = {function () {toggleExpansion()}}>
+                <div className = 'card-header' onClick = {toggleExpansion}>
                     <div className = 'card-header-content'>
                         <div className = 'card-header-left'>
                             <img className = 'card-header-image' src = {`${p.image.split(".png")[0]}.png`}></img>
@@ -20,8 +20,8 @@ const PokemonCard = ({p}) => {
                         </div>
                         <div className = 'card-header-right'>
                             <div className = 'card-button-container'>
-                                {!myTeam.members.includes(p._id) && <div className = 'add-button'>Add to Team</div>}
-                                {myTeam.members.includes(p._id) && <div className = 'on-team'>On Team</div>}
+                                {!myTeam.members.includes(p._id) && <div className = 'add-button'>ADD TO TEAM</div>}
+                                {myTeam.members.includes(p._id) && <div className = 'on-team'>ON TEAM</div>}
                                 {myTeam.members.includes(p._id) && <div className = 'remove-button'></div>}
                             </div>
                         </div>
@@ -40,10 +40,10 @@ const PokemonCard = ({p}) => {
                             <div className = 'card-main-header'>Base Stats:</div>
                             <div className = 'card-main-stat-table'>
                                 <div className = 'card-main-stat'>{`HP: ${p.hp}`}</div>
-                                <div className = 'card-main-stat'>{`Attack: ${p.attack}`}</div>
-                                <div className = 'card-main-stat'>{`Defense: ${p.defense}`}</div>
                                 <div className = 'card-main-stat'>{`Sp. Atk: ${p.spAtk}`}</div>
+                                <div className = 'card-main-stat'>{`Attack: ${p.attack}`}</div>
                                 <div className = 'card-main-stat'>{`SP. Def: ${p.spDef}`}</div>
+                                <div className = 'card-main-stat'>{`Defense: ${p.defense}`}</div>
                                 <div className = 'card-main-stat'>{`Speed: ${p.speed}`}</div>
                             </div>
                             <div className = 'card-main-header'>Damage From:</div>

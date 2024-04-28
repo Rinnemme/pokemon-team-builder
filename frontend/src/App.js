@@ -20,17 +20,15 @@ function App() {
         const teamJson = await teamResponse.json()
         const typeResponse = await fetch('/types')
         const typeJson = await typeResponse.json()
-        const defaultTeam = {name: '', members: []}
 
         if (pokeResponse.ok && teamResponse.ok && typeResponse.ok) {
-            dispatch({type: 'SET_ALL', payload: [pokeJson, teamJson, typeJson, defaultTeam]})
+            dispatch({type: 'SET_ALL', payload: {pokemon: pokeJson, teams: teamJson, types: typeJson, myTeam: myTeam}})
             setFetchDone(true)
         } else throw Error('Fetching failed')
     }
 
     useEffect(() => {
         fetchPokemon()
-        console.log(pokemon)
     }, [])
 
   return (

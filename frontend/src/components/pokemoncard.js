@@ -4,12 +4,34 @@ import { PokemonContext } from "../context/pokemonContext";
 const PokemonCard = ({p}) => {
     const {pokemon, teams, types, myTeam, dispatch} = useContext(PokemonContext) 
     const [expanded, setExpanded] = useState(false)
-    const toggleExpansion = () => expanded ? setExpanded(false) : setExpanded(true)
+
+    const toggleExpansion = (e) => {
+        if (e.target.className!=='add-button' && e.target.className!=='remove-button') {
+            expanded ? setExpanded(false) : setExpanded(true)
+        }
+    }
+
+    const handleAdd = (e) => {
+        if(myTeam.members.length<6) {
+            console.log('Value of p:')
+            console.log(p)
+            dispatch({type: 'ADD_TO_TEAM', payload: p})
+            // e.target 
+        } else {
+            const originalColor = e.target.style.backgroundColor
+            e.target.style.backgroundColor = 'var(--red)'
+            setTimeout(function() {e.target.style.backgroundColor = originalColor}, 500)
+        }
+    }
+
+    const handleRemove = () => {
+        dispatch({type: 'REMOVE_FROM_TEAM', payload: p})
+    }
 
     return (
         <>
             <div className = 'card'>
-                <div className = 'card-header' onClick = {toggleExpansion}>
+                <div className = 'card-header' style={{backgroundColor: myTeam.members.includes(p) ? 'var(--light-yellow)' : 'var(--light-blue)'}} onClick = {toggleExpansion}>
                     <div className = 'card-header-content'>
                         <div className = 'card-header-left'>
                             <img className = 'card-header-image' src = {`${p.image.split(".png")[0]}.png`}></img>
@@ -20,9 +42,9 @@ const PokemonCard = ({p}) => {
                         </div>
                         <div className = 'card-header-right'>
                             <div className = 'card-button-container'>
-                                {!myTeam.members.includes(p._id) && <div className = 'add-button'>ADD TO TEAM</div>}
-                                {myTeam.members.includes(p._id) && <div className = 'on-team'>ON TEAM</div>}
-                                {myTeam.members.includes(p._id) && <div className = 'remove-button'></div>}
+                                {!myTeam.members.includes(p) && <div className = 'add-button' onClick = {handleAdd}>ADD TO TEAM</div>}
+                                {myTeam.members.includes(p) && <div className = 'on-team'>ON TEAM</div>}
+                                {myTeam.members.includes(p) && <img className = 'remove-button' onClick = {handleRemove} src = 'https://static.thenounproject.com/png/2695448-200.png'></img>}
                             </div>
                         </div>
                     </div>

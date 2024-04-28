@@ -19,7 +19,7 @@ const TeamCard = ({team}) => {
     return (
         <>
             <div className = 'team'>
-                <div className = 'card-header' style = {{backgroundColor: 'white'}} onClick = {toggleExpansion}>
+                <div className = 'card-header' style = {{backgroundColor: 'white', height: '100%'}} onClick = {toggleExpansion}>
                     <div className = 'card-header-content'>
                         <div className = "team-info">
                             <div className = "team-name">{team.name}</div>
@@ -27,9 +27,7 @@ const TeamCard = ({team}) => {
                             <div className = "team-preview">
                                 {team.members.map((p) => {
                                     return <img className = "team-preview-image" src={`${p.image.split(".png")[0]}.png`}></img>
-                                })
-
-                                }
+                                })}
                             </div>
                         </div>
                     </div>

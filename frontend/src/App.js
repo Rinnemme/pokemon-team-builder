@@ -13,53 +13,17 @@ function App() {
     async function fetchPokemon() {
         const pokeResponse = await fetch('/pokemon')
         const pokeJson = await pokeResponse.json()
-        // if (pokeResponse.ok) {
-        //     dispatch({type: 'SET_POKEMON',  payload: pokeJson})
-        // } else throw Error('Fetching pokemon failed')
-
         const teamResponse = await fetch('/teams')
         const teamJson = await teamResponse.json()
-        // if (teamResponse.ok) {
-        //     dispatch({type: 'SET_TEAMS',  payload: teamJson})
-        // } else throw Error('Fetching teams failed')
-
         const typeResponse = await fetch('/types')
         const typeJson = await typeResponse.json()
+        const defaultTeam = {name: '', members: []}
 
         if (pokeResponse.ok && teamResponse.ok && typeResponse.ok) {
-            // dispatch({type: 'SET_POKEMON', payload: pokeJson})
-            // dispatch({type: 'SET_TEAMS', payload: teamJson})
-            // dispatch({type: 'SET_TYPES', payload: typeJson})
-            dispatch({type: 'SET_ALL', payload: [pokeJson, teamJson, typeJson]})
+            dispatch({type: 'SET_ALL', payload: [pokeJson, teamJson, typeJson, defaultTeam]})
             setFetchDone(true)
-        } else throw Error('Fetching types failed')
+        } else throw Error('Fetching failed')
     }
-
-    // async function fetchTeams() {
-    //     const response = await fetch('/teams')
-    //     const json = await response.json()
-    //     if (response.ok) {
-    //         dispatch({type: 'SET_TEAMS',  payload: json})
-    //         console.log(json)
-    //     } else throw Error('Fetching teams failed')
-    // }
-
-    // async function fetchTypes() {
-    //     const response = await fetch('/types')
-    //     const json = await response.json()
-    //     if (response.ok) {
-    //         dispatch({type: 'SET_TYPES',  payload: json})
-    //         // setFetchDone(true)
-    //         console.log(json)
-    //     } else throw Error('Fetching types failed')
-    // }
-
-    // async function fetchData() {
-    //     await fetchPokemon()
-    //     await fetchTeams()
-    //     await fetchTypes()
-    //     setFetchDone(true)
-    // }
 
     useEffect(() => {
         fetchPokemon()

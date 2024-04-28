@@ -1,4 +1,5 @@
 const Team = require('../models/team')
+const Type = require('../models/type')
 
 exports.createTeam = async (req, res) => {
     const {name, creator, members} = req.body
@@ -12,7 +13,7 @@ exports.createTeam = async (req, res) => {
 
 exports.listTeams = async (req, res) => {
     try {
-        const teams = await Team.find({}).populate('members')
+        const teams = await Team.find({}).populate({path:'members', populate: {path:'type', model: 'Type'}})
         res.status(200).json(teams)
     } catch (error) {
         res.status(400).json({error: error.message})

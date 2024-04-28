@@ -7,14 +7,14 @@ const PokemonList = () => {
 
     return (
     <>
-        {<div className="content">
+        <div className="content">
             <h1>Pokemon</h1>
             <div className="pokemon-list">
                 {pokemon.map((p) => {
                     return <PokemonCard key = {p._id} p = {p}/>
                 })}
             </div>
-        </div>}
+        </div>
     </>
     )
 }

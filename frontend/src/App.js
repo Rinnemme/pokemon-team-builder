@@ -4,7 +4,10 @@ import { useContext } from 'react'
 import { PokemonContext } from './context/pokemonContext'
 
 import Home from './pages/home'
+import PokemonList from './pages/pokemonList'
+import MyTeam from './pages/myTeam'
 import Navbar from './components/navbar'
+import Teams from './pages/teams'
 
 function App() {
   const [fetchDone, setFetchDone] = useState(false)
@@ -40,6 +43,18 @@ function App() {
             <Route 
               path="/"
               element={<Home />}
+            />
+            <Route 
+              path="/pokemon"
+              element={<PokemonList />}
+            />
+            <Route 
+              path="/my-team"
+              element={<MyTeam />}
+            />
+            <Route 
+              path="/teams"
+              element={<Teams />}
             />
           </Routes>
         </div>

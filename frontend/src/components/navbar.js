@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <header>
                 <Link to="/">
-                    <h2>Pokémon Team Builder</h2>
+                    <div className = "title">Pokémon Team Builder</div>
                 </Link>
                 <div className = "navbar-divider">|</div>
                 <Link to="/pokemon">

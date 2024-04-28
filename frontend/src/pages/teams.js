@@ -1,15 +1,19 @@
 import { useContext } from 'react'
 import { PokemonContext } from '../context/pokemonContext'
-import PokemonCard from '../components/pokemoncard'
+import TeamCard from '../components/teamcard'
 
-const Teams = () => {
+const Teams = (team) => {
     const {pokemon, teams, types, myTeam, dispatch} = useContext(PokemonContext) 
 
     return (
     <>
-        {<div className="Teams">
+        {<div className="content"> 
             <h1>Team List</h1>
-            <div>team list will go here</div>
+            <div className="pokemon-list">
+                {teams.map((t)=> {
+                    return <TeamCard team = {t} key = {t._id}/>
+                })}
+            </div>
         </div>}
     </>
     )

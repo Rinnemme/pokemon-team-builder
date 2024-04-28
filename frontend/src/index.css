@@ -33,7 +33,7 @@
 }
 
 body, #root, .app, .pages {
-  align-items:center;
+  align-items:flex-start;
   background-color: var(--light-gray);
   color: var(--black);
   display:flex;
@@ -44,6 +44,10 @@ body, #root, .app, .pages {
   min-width:400px;
   padding: 0;
   width:100vw;
+}
+
+h1 {
+  font-weight: 300;
 }
 
 a {
@@ -60,16 +64,23 @@ header {
   background-color:white;
   box-shadow: 0px 5px 5px 0px lightgray;
   display:flex;
-  gap: 20px;
+  gap: 10px;
   justify-content:center;
+  padding: 20px;
   position:sticky;
   top:0;
   width: 100%;
   z-index: 3;
 }
 
+.title {
+  font-size: calc(0.3em + 2.5vmin);
+  font-weight: 700;
+}
+
 .page-link {
-  font-size: calc(0.9em + 1vmin);
+  font-size: calc(0.2em + 2.5vmin);
+  text-align:center;
 }
 
 .navbar-divider {
@@ -82,10 +93,13 @@ header {
   display:flex;
   flex-direction:column;
   justify-content:center;
+  margin-bottom:50px;
+  margin-top: 15px;
   width: inherit;
 }
 
 .pokemon-list {
+  align-items:center;
   display:flex;
   flex-direction:column;
   gap:20px;
@@ -95,9 +109,10 @@ header {
 
 .card {
   background-color:white;
+  width:100%;
 }
 
-.card:hover {
+.card:hover, .team:hover {
   box-shadow: 0px 0px 7px 0px gray;
 }
 
@@ -130,12 +145,12 @@ header {
 }
 
 .card-name {
-  font-size: calc(0.7em + 3vmin);
+  font-size: calc(0.5em + 2.5vmin);
   font-weight:500;
 }
 
 .card-number {
-  font-size: calc(0.7em + 3vmin);
+  font-size: calc(0.5em + 2.5vmin);
   font-weight:300;
 }
 
@@ -156,26 +171,28 @@ header {
 .add-button {
   background-color: var(--dark-blue);
   border-radius: 20px;
-  font-size: calc(0.7em + 1vmin);
+  font-size: calc(0.4em + 1vmin);
   padding: 8px 12px 8px 12px;
 }
 
 .on-team {
   background-color: var(--dark-yellow);
   border-radius: 20px;
-  font-size: calc(0.7em + 1vmin);
+  font-size: calc(0.4em + 1vmin);
   padding: 8px 12px 8px 12px;
 }
 
 .remove-button {
   background-color: var(--red);
   border-radius: 20px;
-  font-size: calc(0.7em + 1vmin);
+  font-size: calc(0.4em + 1vmin);
   padding: 8px 12px 8px 12px;
 }
 
 .card-main {
   display:flex;
+  align-items:center;
+  justify-content:center;
   padding:5px 20px 20px 20px;
 }
 
@@ -263,4 +280,38 @@ header {
 
 .card-main-damage-value {
   font-size: 1em;
+}
+
+
+/* Teams */
+
+.team {
+  background-color:white;
+  border: 1px solid lightgray;
+  min-width:400px;
+  width: min(600px, 100vw);
+}
+
+.team-info {
+  text-align:center;
+  width:100%;
+  padding:7px;
+}
+
+.team-name {
+  font-size:1.5em;
+  font-weight: 600;
+  margin-bottom:5px;
+}
+
+.team-card-main-content {
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  padding:20px;
+}
+  
+.team-preview-image {
+  margin-top:10px;
+  width: 14%;
 }

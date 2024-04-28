@@ -141,21 +141,21 @@ header {
 .add-button {
   background-color: var(--dark-blue);
   border-radius: 20px;
-  font-size: calc(0.8em + 1vmin);
+  font-size: calc(0.7em + 1vmin);
   padding: 8px 12px 8px 12px;
 }
 
 .on-team {
   background-color: var(--dark-yellow);
   border-radius: 20px;
-  font-size: calc(0.8em + 1vmin);
+  font-size: calc(0.7em + 1vmin);
   padding: 8px 12px 8px 12px;
 }
 
 .remove-button {
   background-color: var(--red);
   border-radius: 20px;
-  font-size: calc(0.8em + 1vmin);
+  font-size: calc(0.7em + 1vmin);
   padding: 8px 12px 8px 12px;
 }
 
@@ -214,7 +214,7 @@ header {
 .card-main-stat-table {
   align-items:center;
   background-color: var(--light-yellow);
-  border-radius:3px;
+  border-radius:5px;
   display:grid;
   gap:10px;
   grid-template-columns: repeat(auto-fit, 40%);
@@ -230,6 +230,7 @@ header {
 
 .card-main-damage-table {
   background-color: var(--light-blue);
+  border-radius: 5px;
   display:grid;
   gap:10px;
   grid-template-columns: repeat(auto-fit, 15%);
@@ -246,5 +247,5 @@ header {
 }
 
 .card-main-damage-value {
-
+  font-size: 1em;
 }

@@ -1,9 +1,9 @@
 const Team = require('../models/team')
 
 exports.createTeam = async (req, res) => {
-    const {name, members} = req.body
+    const {name, creator, members} = req.body
     try {
-        const team = await Team.create({name, members})
+        const team = await Team.create({name, creator, members})
         res.status(200).json(team)
     } catch (error) {
         res.status(400).json({error: error.message})

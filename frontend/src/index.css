@@ -6,14 +6,35 @@
   --light-blue: #ABD6FF;
   --light-gray: #F7F7F7;
   --black: #1E1E1E;
+  --grass: #B1E897;
+  --poison:#F18FE0;
+  --dragon: #AC9AFF;
+  --fighting: #F6A087;
+  --ghost: #A7A7FF;
+  --bug: #C8D89B;
+  --water: #7EBFFF;
+  --psychic: #FDB7E5;
+  --rock: #D1B868;
+  --flying: #B7C4FF;
+  --ice: #9BEDFF;
+  --normal: #E4E4E4;
+  --ground: #E8C668;
+  --electric: #FFD568;
+  --fire: #FF786B;
 }
 
 * {
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+*:hover {
+  cursor:default;
 }
 
 body, #root, .app, .pages {
   align-items:center;
+  background-color: var(--light-gray);
   color: var(--black);
   display:flex;
   font-family: sans-serif;
@@ -32,9 +53,8 @@ a {
 
 header {
   align-items:center;
-  background-color: var(--light-gray);
-  border: 1px solid green;
-  box-shadow: 0px 5px 5px 0px gray;
+  background-color:white;
+  box-shadow: 0px 5px 5px 0px lightgray;
   display:flex;
   justify-content:center;
   position:sticky;
@@ -59,103 +79,170 @@ header {
 }
 
 .card {
-  border: 1px solid gray;
+  background-color:white;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 7px 0px gray;
 }
 
 .card-header {
+  background-color: var(--light-blue);
+  display: flex;
+  padding:12px 15px 12px 15px;
+}
 
+.card-header:hover, .card-header-content:hover, .card-header-content>*:hover, .card-header-content>*>*:hover {
+  cursor:pointer;
 }
 
 .card-header-content {
-
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  width:100%;
 }
 
 .card-header-left {
-
+  align-items: center;
+  display:flex;
+  flex-direction:row;
+  gap: 12px;
 }
 
 .card-header-image {
-  width:40px;
+  width:60px;
 }
 
 .card-name {
-
+  font-size: calc(0.7em + 3vmin);
+  font-weight:500;
 }
 
 .card-number {
-
+  font-size: calc(0.7em + 3vmin);
+  font-weight:300;
 }
 
 .card-header-right {
-
+  align-items: center;
+  display:flex;
+  flex-direction:row;
+  gap: 10px;
 }
 
 .card-button-container {
-
+  align-items:center;
+  display:flex;
+  flex-direction:row;
+  
 }
 
 .add-button {
-
+  background-color: var(--dark-blue);
+  border-radius: 20px;
+  font-size: calc(0.8em + 1vmin);
+  padding: 8px 12px 8px 12px;
 }
 
 .on-team {
-
+  background-color: var(--dark-yellow);
+  border-radius: 20px;
+  font-size: calc(0.8em + 1vmin);
+  padding: 8px 12px 8px 12px;
 }
 
 .remove-button {
-
+  background-color: var(--red);
+  border-radius: 20px;
+  font-size: calc(0.8em + 1vmin);
+  padding: 8px 12px 8px 12px;
 }
 
 .card-main {
-
+  display:flex;
+  padding:5px 20px 20px 20px;
 }
 
 .card-main-content {
-
+  display:flex;
+  gap:10px;
+  width:100%;
 }
 
 .card-main-left {
-
+  justify-content: center;
+  align-items:center;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  gap:20px;
 }
 
 .card-main-image {
-
+  width:85%;
 }
 
 .card-main-type-container {
-
+  display:flex;
+  flex-direction:row;
+  gap: 15px;
 }
 
 .card-main-type {
-
+  border-radius:20px;
+  font-size: calc(0.8em + 1vmin);
+  padding: 8px 12px 8px 12px;
 }
 
 .card-main-right {
-
+  display:flex;
+  flex:1;
+  flex-direction:column;
 }
 
 .card-main-header {
-
+  align-items:center;
+  display:flex;
+  font-size:1.1em;
+  font-weight: 600;
+  justify-content:center;
+  padding:15px;
+  width:100%;
 }
 
 .card-main-stat-table {
-
+  align-items:center;
+  background-color: var(--light-yellow);
+  border-radius:3px;
+  display:grid;
+  gap:10px;
+  grid-template-columns: repeat(auto-fit, 40%);
+  grid-template-rows: repeat(3, auto);
+  justify-content:center;
+  padding:15px 10px 15px 10px;
 }
 
 .card-main-stat {
-
+  width:100%;
+  text-align:center;
 }
 
 .card-main-damage-table {
-
+  background-color: var(--light-blue);
+  display:grid;
+  gap:10px;
+  grid-template-columns: repeat(auto-fit, 15%);
+  justify-content:center;
+  padding:15px 10px 15px 10px;
 }
 
 .card-main-damage {
-
+  text-align:center;
 }
 
 .card-main-damage-label {
-
+  font-size: 0.8em;
 }
 
 .card-main-damage-value {

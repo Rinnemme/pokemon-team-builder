@@ -8,8 +8,7 @@ const Home = () => {
     return (
     <>
         {<div className="content">
-            <h2>Home</h2>
-            <h3>Pokemon</h3>
+            <h1>Pokemon</h1>
             <div className="pokemon-list">
                 {pokemon.map((p) => {
                     return <PokemonCard key = {p._id} p = {p}/>

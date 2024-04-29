@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 const pokemonRoutes = require('./routes/pokemon')
@@ -8,7 +9,8 @@ const typeRoutes = require('./routes/types')
 const app = express()
 
 //middleware
-app.use(express.json())
+// app.use(express.json())
+app.use(bodyParser.json())
 app.use((req,res,next) => {
     console.log(req.path, req.method)
     next()

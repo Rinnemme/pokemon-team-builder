@@ -1,9 +1,13 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { PokemonContext } from '../context/pokemonContext'
 import PokemonCard from '../components/pokemoncard'
 
 const PokemonList = () => {
     const {pokemon, teams, types, myTeam, dispatch} = useContext(PokemonContext) 
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
     <>

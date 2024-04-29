@@ -16,6 +16,10 @@ export const pokeReducer = (state, action) => {
             return {...state, myTeam: {...state.myTeam, members: [...state.myTeam.members, action.payload]}}
         case 'REMOVE_FROM_TEAM':
             return {...state, myTeam: {...state.myTeam, members: state.myTeam.members.filter((p) => p._id !== action.payload._id)}}
+        case 'SET_TEAM_NAME':
+            return {...state, myTeam: {...state.myTeam, name: action.payload}}
+        case 'SET_TEAM_CREATOR':
+            return {...state, myTeam: {...state.myTeam, creator: action.payload}}
         case 'SUBMIT_TEAM':
             return {...state, teams: [...state.teams, action.payload]}
         default: 
@@ -24,7 +28,7 @@ export const pokeReducer = (state, action) => {
 }
 
 export const PokemonContextProvider = ({children}) => {
-    const [state, dispatch] = useReducer(pokeReducer, {pokemon: null, teams: null, types: null, myTeam: {name: null, creator: null, members: []}})
+    const [state, dispatch] = useReducer(pokeReducer, {pokemon: null, teams: null, types: null, myTeam: {name: '', creator: '', members: []}})
     return (
         <PokemonContext.Provider value = {{...state, dispatch}}>
             {children}

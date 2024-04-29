@@ -344,3 +344,23 @@ header {
   margin-top:10px;
   width: 14%;
 }
+
+/* form */
+
+form {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+form>input {
+  margin-bottom:10px;
+}
+
+form>button {
+  padding: 8px 12px 8px 12px;
+  background-color: var(--black);
+  color: white;
+  border:none;
+  border-radius: 3px;
+}

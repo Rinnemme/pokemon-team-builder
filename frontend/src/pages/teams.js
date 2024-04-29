@@ -9,12 +9,14 @@ const Teams = (team) => {
         window.scrollTo(0, 0)
     }, [])
 
+    const sortedTeams = teams.sort((a,b) => a.createdAt < b.createdAt ? 1 : -1)
+
     return (
     <>
         {<div className="content"> 
             <h1>Team List</h1>
             <div className="pokemon-list">
-                {teams.map((t)=> {
+                {sortedTeams.map((t)=> {
                     return <TeamCard team = {t} key = {t._id}/>
                 })}
             </div>

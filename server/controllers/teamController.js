@@ -13,7 +13,7 @@ exports.createTeam = async (req, res) => {
 
 exports.listTeams = async (req, res) => {
     try {
-        const teams = await Team.find({}).populate({path:'members', populate: {path:'type', model: 'Type'}})
+        const teams = await Team.find({}).populate({path:'members', populate: {path:'type', model: 'Type'}}).sort({createdAt: -1})
         res.status(200).json(teams)
     } catch (error) {
         res.status(400).json({error: error.message})

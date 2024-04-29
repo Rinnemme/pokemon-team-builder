@@ -17,20 +17,24 @@ app.use((req,res,next) => {
     next()
 })
 
+// return a basic home page
+app.get('/', (req, res) => {
+    res.json({mssg: 'Home!'})
+})
+
 //routes
-app.use('/', pokemonRoutes)
 app.use('/teams', teamRoutes)
 app.use('/pokemon', pokemonRoutes)
 app.use('/types', typeRoutes)
 
 //connect to Mongoose
 mongoose.connect(process.env.MONGO_URI, {dbName: 'Pokemon-Team-Builder'})
-    // .then(() => {
-    //     app.listen(process.env.PORT, () => {
-    //         console.log('connected & listening on port', process.env.PORT)
-    //     })
-    // })
-    // .catch((error) => {
-    //     console.log(error)
-    // })
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log('connected & listening on port', process.env.PORT)
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 

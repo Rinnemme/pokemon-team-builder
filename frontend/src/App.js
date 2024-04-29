@@ -14,11 +14,11 @@ function App() {
     const {pokemon, teams, types, myTeam, dispatch} = useContext(PokemonContext) 
     
     async function fetchPokemon() {
-        const pokeResponse = await fetch('/pokemon')
+        const pokeResponse = await fetch('https://pokemon-team-builder-sooty.vercel.app/pokemon')
         const pokeJson = await pokeResponse.json()
-        const teamResponse = await fetch('/teams')
+        const teamResponse = await fetch('https://pokemon-team-builder-sooty.vercel.app/teams')
         const teamJson = await teamResponse.json()
-        const typeResponse = await fetch('/types')
+        const typeResponse = await fetch('https://pokemon-team-builder-sooty.vercel.app/types')
         const typeJson = await typeResponse.json()
 
         if (pokeResponse.ok && teamResponse.ok && typeResponse.ok) {

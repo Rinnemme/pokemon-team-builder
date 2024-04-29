@@ -8,7 +8,7 @@ const TeamForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const team = {myTeam}
-        const response = await fetch('/teams', {
+        const response = await fetch('https://pokemon-team-builder-sooty.vercel.app/teams', {
             method: 'POST',
             body: JSON.stringify(myTeam),
             headers: {

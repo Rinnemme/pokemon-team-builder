@@ -16,7 +16,7 @@ app.use((req,res,next) => {
     console.log(req.path, req.method)
     next()
 })
-app.use(cors({origin: ["https://pokemon-team-builder-usjx.vercel.app", "http://localhost:3000"]}))
+app.use(cors({origin: ["https://pokemon-team-builder-usjx.vercel.app", "https://pokemon-team-builder-usjx.vercel.app/my-team", "http://localhost:3000"]}))
 
 // return a basic home page
 app.get('/', (req, res) => {

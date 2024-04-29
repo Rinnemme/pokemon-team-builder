@@ -4,11 +4,11 @@ const Navbar = () => {
     return (
         <header>
                 <Link to="/">
-                    <div className = "title">Pokémon Team Builder</div>
+                    <div className = "page-link">Home</div>
                 </Link>
                 <div className = "navbar-divider">|</div>
                 <Link to="/pokemon">
-                    <div className = "page-link">Pokémon List</div>
+                    <div className = "page-link">Pokémon</div>
                 </Link>
                 <div className = "navbar-divider">|</div>
                 <Link to="/my-team">

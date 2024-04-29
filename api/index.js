@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const pokemonRoutes = require('./routes/pokemon')
 const teamRoutes = require('./routes/teams')
@@ -9,13 +10,13 @@ const typeRoutes = require('./routes/types')
 const app = express()
 
 //middleware
-// app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use((req,res,next) => {
     console.log(req.path, req.method)
     next()
 })
+app.use(cors({origin: "http://pokemon-team-builder-usjx.vercel.app/"}))
 
 // return a basic home page
 app.get('/', (req, res) => {

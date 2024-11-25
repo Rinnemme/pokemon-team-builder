@@ -14,7 +14,7 @@ const MyTeam = () => {
     return (
         <>
             <div className="content">
-                <h1>My Team</h1>
+                <div className = "page-title">My Team</div>
                 {!myTeam.members.length && <Link to='/pokemon'>
                     <div className = 'card-header' style = {{height: '100%', backgroundColor: 'white', border: '1px solid lightgray'}}>
                         <div className = 'card-header-content'>

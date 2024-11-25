@@ -14,7 +14,7 @@ const Teams = (team) => {
     return (
     <>
         {<div className="content"> 
-            <h1>Team List</h1>
+            <div className = "page-title">Team List</div>
             <div className="pokemon-list">
                 {sortedTeams.map((t)=> {
                     return <TeamCard team = {t} key = {t._id}/>

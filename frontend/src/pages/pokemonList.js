@@ -12,7 +12,7 @@ const PokemonList = () => {
     return (
     <>
         <div className="content">
-            <h1>Pokemon</h1>
+        <div className = "page-title">Pokemon</div>
             <div className="pokemon-list">
                 {pokemon.map((p) => {
                     return <PokemonCard key = {p._id} p = {p}/>

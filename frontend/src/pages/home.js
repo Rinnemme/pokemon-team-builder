@@ -8,7 +8,7 @@ const Home = () => {
     return (
     <>
         {<div className="content">
-            <div className="home-title">Pokémon Team Builder</div>
+            <div className="page-title">Pokémon Team Builder</div>
             <div className="home-card">
                <div className="home-description">
                {/* Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF! This world is inhabited by creatures called POKEMON! */}

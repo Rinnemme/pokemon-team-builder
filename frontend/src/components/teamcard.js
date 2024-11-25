@@ -26,7 +26,11 @@ const TeamCard = ({team}) => {
                             <div className = "team-info">{`Submitted by ${team.creator} ${formatDistanceToNow(new Date(team.createdAt), {addSuffix:true})}`}</div>
                             <div className = "team-preview">
                                 {team.members.map((p) => {
-                                    return <img className = "team-preview-image" src={`${p.image.split(".png")[0]}.png`}></img>
+                                    return (
+                                        <div className = "team-preview-image-container">
+                                            <img className = "team-preview-image" src={`${p.image.split(".png")[0]}.png`}></img>
+                                        </div>
+                                    )
                                 })}
                             </div>
                         </div>

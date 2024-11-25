@@ -64,7 +64,7 @@ a:hover, a>*:hover {
 header {
   align-items:center;
   background-color:white;
-  box-shadow: 0px 5px 5px 0px lightgray;
+  box-shadow: 0px 5px 5px 0px #44444430;
   display:flex;
   gap: 10px;
   justify-content:center;
@@ -105,7 +105,7 @@ header {
   background-color:white;
   border:1px solid lightgray;
   border-radius:4px;
-  box-shadow: 0px 0px 3px lightgray;
+  box-shadow: 0px 0px 3px #44444420;
   font-size: 1.1em;
   font-weight:300;
   height: fit-content;
@@ -187,8 +187,17 @@ header {
   gap: 12px;
 }
 
+.card-header-image-container {
+  align-items: center;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  width: 60px;
+}
+
 .card-header-image {
-  width:60px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .card-name {
@@ -278,8 +287,17 @@ header {
   gap:20px;
 }
 
+.card-main-image-container {
+  align-items: center;
+  display: flex;
+  height: 12rem;
+  justify-content: center;
+  width: 12rem;
+}
+
 .card-main-image {
-  width:85%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .card-main-type-container {
@@ -377,10 +395,25 @@ header {
   gap:20px;
   padding:20px;
 }
+
+.team-preview {
+  display:flex;
+  gap:5px;
+  justify-content:center;
+}
+
+.team-preview-image-container {
+  align-items: center;
+  display: flex;
+  height: 55px;
+  justify-content: center;
+  margin-top:10px;
+  width: 55px;
+}
   
 .team-preview-image {
-  margin-top:10px;
-  width: 14%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 /* form */

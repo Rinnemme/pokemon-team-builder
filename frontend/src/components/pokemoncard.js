@@ -34,7 +34,9 @@ const PokemonCard = ({p}) => {
                 <div className = 'card-header' style={{backgroundColor: myTeam.members.includes(p) ? 'var(--light-yellow)' : 'var(--light-blue)'}} onClick = {toggleExpansion}>
                     <div className = 'card-header-content'>
                         <div className = 'card-header-left'>
-                            <img className = 'card-header-image' src = {`${p.image.split(".png")[0]}.png`}></img>
+                            <div className = 'card-header-image-container'>
+                                <img className = 'card-header-image' src = {`${p.image.split(".png")[0]}.png`}></img>
+                            </div>
                             <div className = 'card-name'> {p.name} </div>
                             {p.pokedexNumber < 10 && <div className = 'card-number'> {`#00${p.pokedexNumber}`}</div>}
                             {(10 <= p.pokedexNumber && p.pokedexNumber < 100) && <div className = 'card-number'> {`#0${p.pokedexNumber}`}</div>}
@@ -52,7 +54,9 @@ const PokemonCard = ({p}) => {
                 {expanded && <div className = 'card-main'>
                     <div className = 'card-main-content'>
                         <div className = 'card-main-left'>
-                            <img className = 'card-main-image' src = {`${p.image.split(".png")[0]}.png`}></img>
+                            <div className = 'card-main-image-container'>
+                                <img className = 'card-main-image' src = {`${p.image.split(".png")[0]}.png`}></img>
+                            </div>
                             <div className = 'card-main-type-container'>
                                 <div className = 'card-main-type' style = {{backgroundColor: `var(--${p.type[0].name.toLowerCase()})`}}>{p.type[0].name}</div>
                                 {p.type[1] && <div className = 'card-main-type' style = {{backgroundColor: `var(--${p.type[1].name.toLowerCase()})`}}>{p.type[1].name}</div>}

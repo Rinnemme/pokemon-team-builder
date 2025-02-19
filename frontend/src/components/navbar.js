@@ -1,25 +1,29 @@
-import {Link} from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-    return (
-        <header>
-                <Link to="/">
-                    <div className = "page-link">Home</div>
-                </Link>
-                <div className = "navbar-divider">|</div>
-                <Link to="/pokemon">
-                    <div className = "page-link">Pokémon</div>
-                </Link>
-                <div className = "navbar-divider">|</div>
-                <Link to="/my-team">
-                <div className = "page-link">My Team</div>
-                </Link>
-                <div className = "navbar-divider">|</div>
-                <Link to="/teams">
-                <div className = "page-link">Teams</div>
-                </Link>
-        </header>
-    )
-}
+  const location = useLocation().pathname;
+  return (
+    <header>
+      <Link to="/" className={location === "/" ? "blue-text" : ""}>
+        <div className="page-link">Home</div>
+      </Link>
+      <Link
+        to="/pokemon"
+        className={location === "/pokemon" ? "blue-text" : ""}
+      >
+        <div className="page-link">Pokémon</div>
+      </Link>
+      <Link
+        to="/my-team"
+        className={location === "/my-team" ? "blue-text" : ""}
+      >
+        <div className="page-link">My Team</div>
+      </Link>
+      <Link to="/teams" className={location === "/teams" ? "blue-text" : ""}>
+        <div className="page-link">Teams</div>
+      </Link>
+    </header>
+  );
+};
 
-export default Navbar
+export default Navbar;

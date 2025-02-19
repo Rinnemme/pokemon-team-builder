@@ -1,26 +1,26 @@
-import { useContext, useEffect } from 'react'
-import { PokemonContext } from '../context/pokemonContext'
-import PokemonCard from '../components/pokemoncard'
+import { useContext, useEffect } from "react";
+import { PokemonContext } from "../context/pokemonContext";
+import PokemonCard from "../components/pokemoncard";
 
 const PokemonList = () => {
-    const {pokemon, teams, types, myTeam, dispatch} = useContext(PokemonContext) 
+  const { pokemon } = useContext(PokemonContext);
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-    return (
+  return (
     <>
-        <div className="content">
-        <div className = "page-title">Pokemon</div>
-            <div className="pokemon-list">
-                {pokemon.map((p) => {
-                    return <PokemonCard key = {p._id} p = {p}/>
-                })}
-            </div>
+      <div className="content">
+        <div className="page-title">Pokémon</div>
+        <div className="pokemon-list">
+          {pokemon.map((p) => {
+            return <PokemonCard key={p._id} p={p} />;
+          })}
         </div>
+      </div>
     </>
-    )
-}
+  );
+};
 
-export default PokemonList
+export default PokemonList;

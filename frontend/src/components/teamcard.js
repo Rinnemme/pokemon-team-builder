@@ -1,52 +1,49 @@
-import { useContext, useState } from "react";
-import { PokemonContext } from "../context/pokemonContext";
+import { useState } from "react";
 import PokemonCard from "./pokemoncard";
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
-const TeamCard = ({team}) => {
-    const {pokemon, teams, types, myTeam, dispatch} = useContext(PokemonContext) 
-    const [expanded, setExpanded] = useState(false)
-    const toggleExpansion = () => expanded ? setExpanded(false) : setExpanded(true)
-
-    const findPokemon = (id) => {
-        pokemon.forEach(pokemon => {
-            if (pokemon._id === id) return pokemon
-        })
-    }
-
-    console.log(team.members)
-
-    return (
-        <>
-            <div className = 'team'>
-                <div className = 'card-header' style = {{backgroundColor: 'white', height: '100%'}} onClick = {toggleExpansion}>
-                    <div className = 'card-header-content'>
-                        <div className = "team-info">
-                            <div className = "team-name">{team.name}</div>
-                            <div className = "team-info">{`Submitted by ${team.creator} ${formatDistanceToNow(new Date(team.createdAt), {addSuffix:true})}`}</div>
-                            <div className = "team-preview">
-                                {team.members.map((p) => {
-                                    return (
-                                        <div className = "team-preview-image-container">
-                                            <img className = "team-preview-image" src={`${p.image.split(".png")[0]}.png`}></img>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
+const TeamCard = ({ team }) => {
+  const [expanded, setExpanded] = useState(false);
+  const toggleExpansion = () =>
+    expanded ? setExpanded(false) : setExpanded(true);
+  return (
+    <>
+      <div className="team">
+        <div className="team-card-header" onClick={toggleExpansion}>
+          <div className="card-header-content">
+            <div className="team-info">
+              <div className="team-name">{team.name}</div>
+              <div className="team-info">{`Submitted by ${
+                team.creator
+              } ${formatDistanceToNow(new Date(team.createdAt), {
+                addSuffix: true,
+              })}`}</div>
+              <div className="team-preview">
+                {team.members.map((p) => {
+                  return (
+                    <div className="team-preview-image-container">
+                      <img
+                        className="team-preview-image"
+                        alt={`${p.name}`}
+                        src={require(`../img/${p.name}.png`)}
+                      ></img>
                     </div>
-                </div>
-                {expanded && <div className = 'card-main'>
-                    <div className = 'pokemon-list'>
-                        {team.members.map((p) => {
-                            const targetPokemon = findPokemon() 
-                            return <PokemonCard key={`${team.name}-${p._id}`} p={p}/>
-                        })}
-                    </div>
-                </div>}
+                  );
+                })}
+              </div>
             </div>
-        </>
-    )
-}
+          </div>
+        </div>
+        {expanded && (
+          <div className="team-card-main">
+            {team.members.map((p) => {
+              return <PokemonCard key={`${team.name}-${p._id}`} p={p} />;
+            })}
+          </div>
+        )}
+      </div>
+    </>
+  );
+};
 
-export default TeamCard
+export default TeamCard;

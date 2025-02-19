@@ -16,8 +16,6 @@ const PokemonCard = ({ p }) => {
 
   const handleAdd = (e) => {
     if (myTeam.members.length < 6) {
-      console.log("Value of p:");
-      console.log(p);
       dispatch({ type: "ADD_TO_TEAM", payload: p });
     } else {
       const originalColor = e.target.style.backgroundColor;

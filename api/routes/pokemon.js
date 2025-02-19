@@ -1,9 +1,9 @@
-const express = require('express')
-const router = express.Router()
-const pokemonController = require('../controllers/pokemonController')
+const express = require("express");
+const router = express.Router();
+const pokemonController = require("../controllers/pokemonController");
 
-router.get('/', pokemonController.getAllPokemon)
+router.get("/", pokemonController.getAllPokemon);
 
-router.get('/:name', pokemonController.getOnePokemon)
+router.get("/:name", pokemonController.getOnePokemon);
 
-module.exports = router
+module.exports = router;

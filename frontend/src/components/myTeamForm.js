@@ -31,7 +31,6 @@ const TeamForm = () => {
           myTeam: { name: "", creator: "", members: [] },
         },
       });
-      console.log(`new team added`, json);
     }
   };
 

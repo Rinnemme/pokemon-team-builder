@@ -13,7 +13,7 @@ const Home = () => {
             <div className="home-description">
               Welcome to this wonderful app of Pokémon. My name is Oak! People
               call me the Pokémon Prof. This app is inhabited by creatures
-              called Pokemon!
+              called Pokémon!
               <br></br>
               <br></br>
               Check out the Pokémon tab to learn about Pokémon and start

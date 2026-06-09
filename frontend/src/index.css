@@ -606,14 +606,24 @@ header a.blue-text {
 
 /* Form */
 
+.submit-panel {
+  align-self: center;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(7, 34, 78, 0.08);
+  margin-top: 2rem;
+  padding: 2rem 2.5rem;
+  width: min(440px, 100%);
+}
+
 form {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 2rem;
+  margin-top: 0;
   text-align: center;
-  width: min(340px, 90%);
+  width: 100%;
 }
 
 .form-header {

@@ -32,7 +32,11 @@ const MyTeam = () => {
             return <PokemonCard key={`myTeam-${p._id}`} p={p} />;
           })}
         </div>
-        {myTeam.members.length > 0 && <TeamForm />}
+        {myTeam.members.length > 0 && (
+          <div className="submit-panel">
+            <TeamForm />
+          </div>
+        )}
       </div>
     </>
   );

@@ -8,36 +8,43 @@
 }
 
 :root {
-  --dark-yellow: #ffdb64;
-  --darker-yellow: #c09300;
-  --light-yellow: #ffeaa6;
-  --red: #da5252;
-  --dark-red: #af3333;
-  --dark-blue: #74adfd;
-  --darker-blue: #437ccb;
-  --light-blue: #abd6ff;
-  --light-gray: #f7f7f7;
-  --black: #1e1e1e;
-  --grass: #b1e897;
-  --poison: #f18fe0;
-  --dragon: #ac9aff;
+  /* Core palette — updated to official Pokemon GO colors */
+  --dark-yellow:  #FFCB08;
+  --darker-yellow: #c09300;  /* retained, no longer in rules */
+  --light-yellow: #F4F6FB;   /* on-team card header bg + stat table; subtle bg tint */
+  --red:          #E21C25;
+  --dark-red:     #c01020;
+  --dark-blue:    #3561AD;
+  --darker-blue:  #0B4DA2;
+  --light-blue:   #F4F6FB;   /* default card header bg; same as bg */
+  --light-gray:   #FFFFFF;   /* team card bg */
+  --black:        #07224E;   /* base text color (navy) */
+
+  /* New tokens */
+  --bg:           #F4F6FB;
+  --gray:         #BCBDC0;
+
+  /* Type colors — unchanged */
+  --grass:    #b1e897;
+  --poison:   #f18fe0;
+  --dragon:   #ac9aff;
   --fighting: #f6a087;
-  --ghost: #a7a7ff;
-  --bug: #c8d89b;
-  --water: #7ebfff;
-  --psychic: #fdb7e5;
-  --rock: #d1b868;
-  --flying: #b7c4ff;
-  --ice: #9bedff;
-  --normal: #e4e4e4;
-  --ground: #e8c668;
+  --ghost:    #a7a7ff;
+  --bug:      #c8d89b;
+  --water:    #7ebfff;
+  --psychic:  #fdb7e5;
+  --rock:     #d1b868;
+  --flying:   #b7c4ff;
+  --ice:      #9bedff;
+  --normal:   #e4e4e4;
+  --ground:   #e8c668;
   --electric: #ffd568;
-  --fire: #ff786b;
+  --fire:     #ff786b;
 }
 
 * {
   box-sizing: border-box;
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 *:hover {
@@ -49,6 +56,7 @@ body,
 .app,
 .pages {
   align-items: flex-start;
+  background-color: var(--bg);
   color: var(--black);
   display: flex;
   justify-content: center;
@@ -73,47 +81,50 @@ a > *:hover {
 }
 
 header {
-  align-items: center;
+  align-items: stretch;
   background-color: white;
-  box-shadow: 0px 2px 5px 0px #ffffff90;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 6px rgba(7, 34, 78, 0.07);
   display: flex;
   gap: 1.2rem;
+  height: 60px;
   justify-content: center;
-  padding: 20px;
+  padding: 0 20px;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 5;
 }
 
+header a {
+  align-items: center;
+  border-bottom: 3px solid transparent;
+  display: flex;
+}
+
 .page-title {
-  font-size: 3.1rem;
-  width: min(400px, 100vw);
-  color: var(--dark-yellow);
+  color: var(--black);
+  font-size: 2.8rem;
   font-weight: 800;
-  letter-spacing: 0.05rem;
-  margin-top: 1.5rem;
+  letter-spacing: -0.02em;
   margin-bottom: 2rem;
-  text-shadow: 0px 1px 1px var(--darker-blue), 0px 2px 1px var(--darker-blue),
-    1px 1px 1px var(--darker-blue), 1px 2px 1px var(--darker-blue),
-    2px 2px 1px var(--darker-blue), 2px 1px 1px var(--darker-blue),
-    2px 0px 1px var(--darker-blue), 1px 0px 1px var(--darker-blue),
-    0px 0px 1px var(--darker-blue), 0px -1px 1px var(--darker-blue),
-    0px -2px 1px var(--darker-blue), -1px -1px 1px var(--darker-blue),
-    -1px -2px 1px var(--darker-blue), -2px -2px 1px var(--darker-blue),
-    -2px -1px 1px var(--darker-blue), -2px 0px 1px var(--darker-blue),
-    -1px 0px 1px var(--darker-blue), 1px -1px 1px var(--darker-blue),
-    1px -2px 1px var(--darker-blue), 2px -2px 1px var(--darker-blue),
-    2px -1px 1px var(--darker-blue), -1px 1px 1px var(--darker-blue),
-    -1px 2px 1px var(--darker-blue), -2px 2px 1px var(--darker-blue),
-    -2px 1px 1px var(--darker-blue);
-  text-align: center;
+  margin-top: 1.5rem;
+  text-align: left;
+  text-shadow: none;
+  width: 100%;
+}
+
+.page-title-accent {
+  color: var(--darker-blue);
 }
 
 .blue-text {
   color: var(--darker-blue);
-  text-decoration: underline;
-  text-underline-offset: 1.5rem;
+  text-decoration: none;
+}
+
+header a.blue-text {
+  border-bottom-color: var(--dark-yellow);
 }
 
 .red-text {
@@ -126,31 +137,29 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0px 15px 15px 15px;
-  width: min(600px, 100vw);
+  padding: 0 15px 15px;
+  width: min(700px, 100vw);
 }
 
 .home-image {
-  width: 300px;
+  width: 280px;
 }
 
 .home-description {
   background-color: white;
-  border: 4px solid black;
-  border-radius: 10px;
-  border-style: double;
-  box-shadow: -1px 1px 1px #00000080 inset;
-  font-size: 1.1em;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(7, 34, 78, 0.08);
+  font-size: 1.05em;
   font-weight: 400;
   height: fit-content;
-  line-height: 1.4em;
-  padding: 18px;
+  line-height: 1.55em;
+  padding: 24px;
   width: min(400px, 100vw);
 }
 
 .page-link {
-  font-size: 1.1em;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -160,37 +169,44 @@ header {
 
 .content {
   align-items: center;
+  animation: fade-in 0.7s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 50px;
-  padding-top: 15px;
-  animation: fade-in 0.7s ease;
-  width: inherit;
+  max-width: 900px;
+  padding: 20px 20px 60px;
+  width: 100%;
 }
 
 .pokemon-list {
-  align-items: center;
+  align-items: stretch;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 90%;
+  gap: 12px;
+  width: 100%;
 }
+
+/* Cards */
 
 .card {
   background-color: white;
+  border-left: 4px solid var(--darker-blue);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(7, 34, 78, 0.06);
+  overflow: hidden;
 }
 
 .card:hover,
 .team:hover {
-  transition: 300ms;
-  box-shadow: 0px 0px 7px 0px gray;
+  box-shadow: 0 6px 20px rgba(7, 34, 78, 0.12);
+  transform: translateY(-1px);
+  transition: box-shadow 200ms, transform 200ms;
 }
 
 .card-header {
   background-color: var(--light-blue);
   display: flex;
-  padding: 14px 15px 14px 15px;
+  padding: 14px 20px;
 }
 
 .card-header:hover,
@@ -211,10 +227,10 @@ header {
 
 .card-header-info {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .card-header-left {
@@ -232,24 +248,29 @@ header {
 
 .card-header-image-container {
   align-items: center;
+  background-color: var(--bg);
+  border-radius: 10px;
   display: flex;
-  height: 60px;
+  flex-shrink: 0;
+  height: 56px;
   justify-content: center;
-  width: 60px;
+  width: 56px;
 }
 
 .card-header-image {
-  height: 100%;
+  max-height: 48px;
+  max-width: 48px;
 }
 
 .card-name {
-  font-size: 1.4em;
-  font-weight: 500;
+  font-size: 1.15em;
+  font-weight: 700;
 }
 
 .card-number {
-  font-size: 1.2em;
-  font-weight: 300;
+  color: var(--gray);
+  font-size: 0.85em;
+  font-weight: 400;
 }
 
 .card-button-container {
@@ -260,68 +281,78 @@ header {
 }
 
 .add-button {
-  background-color: var(--dark-blue);
-  border-radius: 20px;
-  font-size: 0.85em;
-  padding: 8px 12px 8px 12px;
+  background-color: var(--darker-blue);
+  border-radius: 50px;
+  color: white;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 8px 18px;
+  transition: background 150ms, transform 100ms;
   z-index: 3;
 }
 
 .add-button:hover {
-  outline: 1px solid var(--darker-blue);
+  background-color: var(--dark-blue);
+  transform: scale(1.03);
 }
 
 .add-button:active {
-  background-color: var(--dark-blue);
+  background-color: var(--darker-blue);
+  transform: scale(0.98);
 }
 
 .on-team {
   background-color: var(--dark-yellow);
-  border-radius: 20px;
-  font-size: 0.85em;
-  padding: 8px 12px 8px 12px;
+  border-radius: 50px;
+  color: var(--black);
+  font-size: 0.78em;
+  font-weight: 700;
+  padding: 8px 16px;
 }
 
 .remove-button {
   background-color: var(--red);
-  width: 20px;
-  height: 20px;
-  padding: 2px;
-  border-radius: 15px;
+  border-radius: 8px;
   font-size: 0.85em;
+  height: 24px;
+  padding: 2px;
+  width: 24px;
   z-index: 3;
 }
 
 .remove-button:hover {
-  outline: 1px solid var(--dark-red);
+  outline: 1.5px solid var(--dark-red);
 }
 
 .remove-button:active {
   background-color: var(--dark-red);
 }
 
+/* Expanded card */
+
 .card-main {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
-  padding: 20px 15px 20px 15px;
+  padding: 20px 15px;
 }
 
 .card-main-content {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
   width: 100%;
 }
 
 .card-main-left {
-  justify-content: center;
   align-items: center;
   display: flex;
-  flex-direction: column;
   flex: 1;
+  flex-direction: column;
   gap: 20px;
+  justify-content: center;
 }
 
 .card-main-image-container {
@@ -333,50 +364,56 @@ header {
 }
 
 .card-main-image {
-  max-width: 100%;
   max-height: 100%;
+  max-width: 100%;
 }
 
 .card-main-type-container {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
 }
 
 .card-main-type {
-  border-radius: 20px;
-  font-size: 1.15em;
-  padding: 8px 12px 8px 12px;
+  border-radius: 6px;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 5px 14px;
+  text-transform: uppercase;
 }
 
 .card-main-right {
   display: flex;
   flex: 1;
   flex-direction: column;
-  min-width: 225px;
   max-width: 300px;
+  min-width: 225px;
 }
 
 .card-main-header {
   align-items: center;
+  color: var(--gray);
   display: flex;
-  font-size: 1.1em;
-  font-weight: 600;
+  font-size: 0.72em;
+  font-weight: 700;
   justify-content: center;
-  padding: 15px;
+  letter-spacing: 0.1em;
+  padding: 12px 0 8px;
+  text-transform: uppercase;
   width: 100%;
 }
 
 .card-main-stat-table {
   align-items: center;
   background-color: var(--light-yellow);
-  border-radius: 5px;
+  border-radius: 8px;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fit, 30%);
   grid-template-rows: repeat(2, auto);
   justify-content: center;
-  padding: 15px 10px 15px 10px;
+  padding: 15px 10px;
 }
 
 .card-main-stat,
@@ -386,78 +423,82 @@ header {
 
 .card-main-damage-table {
   background-color: var(--light-blue);
-  border-radius: 5px;
+  border-radius: 8px;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fit, 15%);
   justify-content: center;
-  padding: 15px 10px 15px 10px;
-}
-
-.card-main-damage {
-  text-align: center;
+  padding: 15px 10px;
 }
 
 .card-main-damage-label,
 .card-main-stat-label {
-  font-size: 0.8em;
+  color: var(--gray);
+  font-size: 0.75em;
 }
 
 .card-main-damage-value,
 .card-main-stat-value {
   font-size: 1em;
+  font-weight: 700;
 }
 
 /* Teams */
 
 .team {
   background-color: var(--light-gray);
-  border: 1px solid lightgray;
-  margin-bottom: 20px;
-  width: min(500px, 90%);
+  border-left: 4px solid var(--darker-blue);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(7, 34, 78, 0.06);
   display: flex;
   flex-direction: column;
+  margin-bottom: 12px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .team-info {
+  padding: 7px;
   text-align: center;
   width: 100%;
-  padding: 7px;
 }
 
 .team-name {
-  font-size: 1.5em;
-  font-weight: 600;
-  margin-bottom: 5px;
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
 .team-card-header {
+  cursor: pointer;
   display: flex;
-  padding: 14px 15px 14px 15px;
+  padding: 14px 20px;
 }
 
 .team-card-main {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   justify-content: center;
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 
 .team-preview {
   display: flex;
-  gap: 5px;
+  gap: 6px;
   justify-content: center;
 }
 
 .team-preview-image-container {
   align-items: center;
+  background-color: var(--bg);
+  border-radius: 8px;
   display: flex;
-  height: 55px;
+  height: 50px;
   justify-content: center;
-  margin-top: 10px;
-  width: 55px;
+  margin-top: 8px;
+  width: 50px;
 }
 
 .team-preview-image {
@@ -466,21 +507,19 @@ header {
 }
 
 .no-pokemon {
-  padding: 14px 15px 14px 15px;
-  width: 80%;
-  justify-self: center;
-  height: "100%";
-  background-color: "white";
-  border: 1px dashed gray;
+  border: 2px dashed var(--gray);
+  border-radius: 14px;
+  padding: 16px 20px;
   transition: 300ms;
+  width: 90%;
 }
 
 .no-pokemon:hover {
-  box-shadow: 1px 1px 5px lightgray;
+  box-shadow: 0 4px 12px rgba(7, 34, 78, 0.1);
   scale: 1.01;
 }
 
-/* form */
+/* Form */
 
 form {
   align-items: center;
@@ -489,59 +528,66 @@ form {
   gap: 10px;
   margin-top: 2rem;
   text-align: center;
-  width: 200px;
+  width: min(340px, 90%);
 }
 
 .form-header {
-  color: var(--dark-yellow);
-  font-size: 2rem;
+  color: var(--black);
+  font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
+  margin-bottom: 1rem;
   margin-top: 1rem;
-  margin-bottom: 1.2rem;
-  text-shadow: 0px 1px 1px var(--darker-blue), 0px 2px 1px var(--darker-blue),
-    1px 1px 1px var(--darker-blue), 1px 2px 1px var(--darker-blue),
-    2px 2px 1px var(--darker-blue), 2px 1px 1px var(--darker-blue),
-    2px 0px 1px var(--darker-blue), 1px 0px 1px var(--darker-blue),
-    0px 0px 1px var(--darker-blue), 0px -1px 1px var(--darker-blue),
-    0px -2px 1px var(--darker-blue), -1px -1px 1px var(--darker-blue),
-    -1px -2px 1px var(--darker-blue), -2px -2px 1px var(--darker-blue),
-    -2px -1px 1px var(--darker-blue), -2px 0px 1px var(--darker-blue),
-    -1px 0px 1px var(--darker-blue), 1px -1px 1px var(--darker-blue),
-    1px -2px 1px var(--darker-blue), 2px -2px 1px var(--darker-blue),
-    2px -1px 1px var(--darker-blue), -1px 1px 1px var(--darker-blue),
-    -1px 2px 1px var(--darker-blue), -2px 2px 1px var(--darker-blue),
-    -2px 1px 1px var(--darker-blue);
+  text-shadow: none;
+}
+
+form > label {
+  align-self: flex-start;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 form > input {
-  border: 1px solid lightgray;
-  display: flex;
-  height: 1.8rem;
-  border-radius: 1rem;
-  margin-bottom: 10px;
-  padding: 4px 8px 4px 8px;
-  width: 80%;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  height: 2.2rem;
+  outline: none;
+  padding: 6px 14px;
+  transition: border-color 150ms;
+  width: 100%;
+}
+
+form > input:focus {
+  border-color: var(--darker-blue);
 }
 
 form > button {
-  padding: 10px 15px 10px 15px;
   background-color: var(--darker-blue);
-  color: white;
   border: none;
-  border-radius: 1.5rem;
-  margin-top: 1rem;
-  width: fit-content;
+  border-radius: 50px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-top: 0.5rem;
+  padding: 12px 20px;
+  width: 100%;
 }
 
 form > button:hover {
+  background-color: var(--dark-blue);
   cursor: pointer;
-  scale: 1.05;
-  background-color: var(--water);
-  transition: 300ms;
+  transform: translateY(-1px);
+  transition: background-color 150ms, transform 150ms;
 }
 
 form > button:active {
-  scale: 0.95;
   background-color: var(--darker-blue);
+  transform: scale(0.98);
 }

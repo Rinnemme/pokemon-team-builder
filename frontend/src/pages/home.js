@@ -3,7 +3,7 @@ const Home = () => {
     <>
       {
         <div className="content">
-          <div className="page-title">Pokémon Team Builder</div>
+          <div className="page-title" style={{ textAlign: "center" }}>Pokémon <span className="page-title-accent">Team Builder</span></div>
           <div className="home-card">
             <img
               className="home-image"

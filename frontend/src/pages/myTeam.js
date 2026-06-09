@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { PokemonContext } from "../context/pokemonContext";
 import PokemonCard from "../components/pokemoncard";
+import PokemonSlot from "../components/pokemonSlot";
 import TeamForm from "../components/myTeamForm";
 
 const MyTeam = () => {
@@ -15,22 +15,13 @@ const MyTeam = () => {
     <>
       <div className="content">
         <div className="page-title">My Team</div>
-        {!myTeam.members.length && (
-          <Link to="/pokemon">
-            <div className="no-pokemon">
-              <div className="card-header-content">
-                <div className="team-info">
-                  <div className="team-name">{`There are no pokemon here!`}</div>
-                  <div className="team-info">{`Head to the Pokemon tab to start adding Pokemon to your team!`}</div>
-                </div>
-              </div>
-            </div>
-          </Link>
-        )}
         <div className="pokemon-list">
-          {myTeam.members.map((p) => {
-            return <PokemonCard key={`myTeam-${p._id}`} p={p} />;
-          })}
+          {myTeam.members.map((p) => (
+            <PokemonCard key={`myTeam-${p._id}`} p={p} />
+          ))}
+          {Array.from({ length: 6 - myTeam.members.length }, (_, i) => (
+            <PokemonSlot key={`slot-${i}`} />
+          ))}
         </div>
         {myTeam.members.length > 0 && (
           <div className="submit-panel">

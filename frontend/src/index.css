@@ -277,8 +277,10 @@ header a.blue-text {
 }
 
 .card-header {
+  align-items: center;
   background-color: var(--light-blue);
   display: flex;
+  gap: 15px;
   padding: 14px 20px;
 }
 
@@ -591,17 +593,49 @@ header a.blue-text {
   max-width: 100%;
 }
 
-.no-pokemon {
+.empty-slot {
   border: 2px dashed var(--gray);
   border-radius: 14px;
-  padding: 16px 20px;
-  transition: 300ms;
-  width: 90%;
+  color: inherit;
+  display: block;
+  overflow: hidden;
+  transition: border-color 200ms, box-shadow 200ms;
 }
 
-.no-pokemon:hover {
+.empty-slot:hover {
+  border-color: var(--darker-blue);
   box-shadow: 0 4px 12px rgba(7, 34, 78, 0.1);
-  scale: 1.01;
+}
+
+.empty-slot:hover .empty-slot-image {
+  border-color: var(--darker-blue);
+  color: var(--darker-blue);
+}
+
+.empty-slot:hover .empty-slot-label {
+  color: var(--darker-blue);
+}
+
+.empty-slot-image {
+  align-items: center;
+  border: 2px dashed var(--gray);
+  border-radius: 10px;
+  color: var(--gray);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+  height: 56px;
+  justify-content: center;
+  transition: border-color 200ms, color 200ms;
+  width: 56px;
+}
+
+.empty-slot-label {
+  color: var(--gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 200ms;
 }
 
 /* Form */

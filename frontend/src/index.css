@@ -592,7 +592,6 @@ header a.blue-text {
 
 .team-preview-image-container {
   align-items: center;
-  background-color: var(--bg);
   border-radius: 8px;
   display: flex;
   height: 50px;

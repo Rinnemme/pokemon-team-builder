@@ -16,7 +16,7 @@ const Teams = (team) => {
   return (
     <>
       {
-        <div className="content">
+        <div className="content content--narrow">
           <div className="page-title">Teams</div>
           {sortedTeams.map((t) => {
             return <TeamCard team={t} key={t._id} />;

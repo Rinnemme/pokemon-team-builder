@@ -34,13 +34,13 @@ const TeamCard = ({ team }) => {
             </div>
           </div>
         </div>
-        {expanded && (
+        <div className={`team-expand-wrapper${expanded ? " team-expand-wrapper--open" : ""}`}>
           <div className="team-card-main">
             {team.members.map((p) => {
-              return <PokemonCard key={`${team.name}-${p._id}`} p={p} />;
+              return <PokemonCard key={`${team.name}-${p._id}`} p={p} active={false} />;
             })}
           </div>
-        )}
+        </div>
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { PokemonContext } from "../context/pokemonContext";
 
-const PokemonCard = ({ p }) => {
+const PokemonCard = ({ p, active = true }) => {
   const { myTeam, dispatch } = useContext(PokemonContext);
   const [expanded, setExpanded] = useState(false);
 
@@ -38,11 +38,11 @@ const PokemonCard = ({ p }) => {
 
   return (
     <>
-      <div className={`card${myTeam.members.includes(p) ? " card--on-team" : ""}`}>
+      <div className={`card${active && myTeam.members.includes(p) ? " card--on-team" : ""}`}>
         <div
           className="card-header"
           style={{
-            backgroundColor: myTeam.members.includes(p)
+            backgroundColor: active && myTeam.members.includes(p)
               ? "var(--light-yellow)"
               : "var(--light-blue)",
           }}
@@ -66,15 +66,15 @@ const PokemonCard = ({ p }) => {
               </div>
               <div className="card-header-right">
                 <div className="card-button-container">
-                  {!myTeam.members.includes(p) && (
+                  {active && !myTeam.members.includes(p) && (
                     <div className="add-button" onClick={handleAdd}>
                       ADD TO TEAM
                     </div>
                   )}
-                  {myTeam.members.includes(p) && (
+                  {active && myTeam.members.includes(p) && (
                     <div className="on-team">ON TEAM</div>
                   )}
-                  {myTeam.members.includes(p) && (
+                  {active && myTeam.members.includes(p) && (
                     <img
                       className="remove-button"
                       alt="remove from team"

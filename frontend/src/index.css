@@ -245,6 +245,10 @@ header a.blue-text {
   width: 100%;
 }
 
+.content--narrow {
+  max-width: 680px;
+}
+
 .pokemon-list {
   align-items: stretch;
   display: flex;
@@ -562,13 +566,22 @@ header a.blue-text {
   padding: 14px 20px;
 }
 
+.team-expand-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms ease-in-out;
+}
+
+.team-expand-wrapper--open {
+  max-height: 2500px;
+}
+
 .team-card-main {
-  align-items: center;
+  align-items: stretch;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  justify-content: center;
-  padding-bottom: 16px;
+  padding: 12px 16px 16px;
 }
 
 .team-preview {

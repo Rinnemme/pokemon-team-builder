@@ -1,28 +1,39 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <>
-      {
-        <div className="content">
-          <div className="page-title" style={{ textAlign: "center" }}>Pokémon <span className="page-title-accent">Team Builder</span></div>
-          <div className="home-card">
+      <div className="content">
+        <div className="page-title" style={{ textAlign: "center" }}>
+          Pokémon <span className="page-title-accent">Team Builder</span>
+        </div>
+        <div className="home-main-card">
+          <div className="home-image-panel">
             <img
               className="home-image"
               alt="Professor Oak"
               src={require(`../img/Oak.png`)}
-            ></img>
+            />
+          </div>
+          <div className="home-text-panel">
+            <div className="oak-label">Professor Oak</div>
             <div className="home-description">
               Welcome to this wonderful app of Pokémon. My name is Oak! People
               call me the Pokémon Prof. This app is inhabited by creatures
               called Pokémon!
-              <br></br>
-              <br></br>
+              <br />
+              <br />
               Check out the Pokémon tab to learn about Pokémon and start
               building your team, submit it on the My Team tab, and check out
               the teams others have put together on the Teams tab!
             </div>
+            <div className="cta-row">
+              <Link to="/pokemon" className="cta-btn-primary">Browse Pokémon</Link>
+              <Link to="/teams" className="cta-btn-secondary">See All Teams</Link>
+            </div>
           </div>
         </div>
-      }
+      </div>
     </>
   );
 };

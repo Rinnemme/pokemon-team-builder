@@ -9,37 +9,37 @@
 
 :root {
   /* Core palette — updated to official Pokemon GO colors */
-  --dark-yellow:  #FFCB08;
-  --darker-yellow: #c09300;  /* retained, no longer in rules */
-  --light-yellow: #F4F6FB;   /* on-team card header bg + stat table; subtle bg tint */
-  --red:          #E21C25;
-  --dark-red:     #c01020;
-  --dark-blue:    #3561AD;
-  --darker-blue:  #0B4DA2;
-  --light-blue:   #F4F6FB;   /* default card header bg; same as bg */
-  --light-gray:   #FFFFFF;   /* team card bg */
-  --black:        #07224E;   /* base text color (navy) */
+  --dark-yellow: #ffcb08;
+  --darker-yellow: #c09300; /* retained, no longer in rules */
+  --light-yellow: #f4f6fb; /* on-team card header bg + stat table; subtle bg tint */
+  --red: #e21c25;
+  --dark-red: #c01020;
+  --dark-blue: #3561ad;
+  --darker-blue: #0b4da2;
+  --light-blue: #f4f6fb; /* default card header bg; same as bg */
+  --light-gray: #ffffff; /* team card bg */
+  --black: #07224e; /* base text color (navy) */
 
   /* New tokens */
-  --bg:           #F4F6FB;
-  --gray:         #BCBDC0;
+  --bg: #f4f6fb;
+  --gray: #bcbdc0;
 
   /* Type colors — unchanged */
-  --grass:    #b1e897;
-  --poison:   #f18fe0;
-  --dragon:   #ac9aff;
+  --grass: #b1e897;
+  --poison: #f18fe0;
+  --dragon: #ac9aff;
   --fighting: #f6a087;
-  --ghost:    #a7a7ff;
-  --bug:      #c8d89b;
-  --water:    #7ebfff;
-  --psychic:  #fdb7e5;
-  --rock:     #d1b868;
-  --flying:   #b7c4ff;
-  --ice:      #9bedff;
-  --normal:   #e4e4e4;
-  --ground:   #e8c668;
+  --ghost: #a7a7ff;
+  --bug: #c8d89b;
+  --water: #7ebfff;
+  --psychic: #fdb7e5;
+  --rock: #d1b868;
+  --flying: #b7c4ff;
+  --ice: #9bedff;
+  --normal: #e4e4e4;
+  --ground: #e8c668;
   --electric: #ffd568;
-  --fire:     #ff786b;
+  --fire: #ff786b;
 }
 
 * {
@@ -131,30 +131,97 @@ header a.blue-text {
   color: var(--dark-red);
 }
 
-.home-card {
-  align-items: center;
+.home-main-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(7, 34, 78, 0.09);
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  max-width: 700px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.home-image-panel {
+  align-items: flex-end;
+  background: linear-gradient(135deg, #e8f0ff 0%, #d0e2ff 100%);
+  display: flex;
+  padding: 25px;
+  flex: 1 0 220px;
   justify-content: center;
-  padding: 0 15px 15px;
-  width: min(700px, 100vw);
+  min-height: 280px;
 }
 
 .home-image {
-  width: 280px;
+  display: block;
+  width: 100%;
+}
+
+.home-text-panel {
+  display: flex;
+  flex: 1 0 260px;
+  flex-direction: column;
+  gap: 1.2rem;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+}
+
+.oak-label {
+  color: var(--darker-blue);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .home-description {
-  background-color: white;
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(7, 34, 78, 0.08);
+  color: #334155;
   font-size: 1.05em;
   font-weight: 400;
-  height: fit-content;
-  line-height: 1.55em;
-  padding: 24px;
-  width: min(400px, 100vw);
+  line-height: 1.6em;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.cta-btn-primary {
+  background-color: var(--darker-blue);
+  border-radius: 50px;
+  color: white;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 1.3rem;
+  transition:
+    transform 150ms,
+    box-shadow 150ms;
+}
+
+.cta-btn-primary:hover {
+  box-shadow: 0 4px 12px rgba(7, 34, 78, 0.2);
+  transform: translateY(-1px);
+}
+
+.cta-btn-secondary {
+  background-color: var(--dark-yellow);
+  border-radius: 50px;
+  color: var(--black);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 1.3rem;
+  transition:
+    transform 150ms,
+    box-shadow 150ms;
+}
+
+.cta-btn-secondary:hover {
+  box-shadow: 0 4px 12px rgba(7, 34, 78, 0.2);
+  transform: translateY(-1px);
 }
 
 .page-link {
@@ -200,7 +267,9 @@ header a.blue-text {
 .team:hover {
   box-shadow: 0 6px 20px rgba(7, 34, 78, 0.12);
   transform: translateY(-1px);
-  transition: box-shadow 200ms, transform 200ms;
+  transition:
+    box-shadow 200ms,
+    transform 200ms;
 }
 
 .card-header {
@@ -288,7 +357,9 @@ header a.blue-text {
   font-weight: 700;
   letter-spacing: 0.04em;
   padding: 8px 18px;
-  transition: background 150ms, transform 100ms;
+  transition:
+    background 150ms,
+    transform 100ms;
   z-index: 3;
 }
 
@@ -584,7 +655,9 @@ form > button:hover {
   background-color: var(--dark-blue);
   cursor: pointer;
   transform: translateY(-1px);
-  transition: background-color 150ms, transform 150ms;
+  transition:
+    background-color 150ms,
+    transform 150ms;
 }
 
 form > button:active {

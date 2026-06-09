@@ -38,7 +38,7 @@ const PokemonCard = ({ p }) => {
 
   return (
     <>
-      <div className="card">
+      <div className={`card${myTeam.members.includes(p) ? " card--on-team" : ""}`}>
         <div
           className="card-header"
           style={{
@@ -123,27 +123,27 @@ const PokemonCard = ({ p }) => {
                 <div className="card-main-header">Base Stats:</div>
                 <div className="card-main-stat-table">
                   <div className="card-main-stat">
-                    <div className="card-main-stat-label">HP:</div>
+                    <div className="card-main-stat-label">HP</div>
                     <div className="card-main-stat-value">{`${p.hp}`}</div>
                   </div>
                   <div className="card-main-stat">
-                    <div className="card-main-stat-label">SP. ATK:</div>
+                    <div className="card-main-stat-label">SP. ATK</div>
                     <div className="card-main-stat-value">{`${p.spAtk}`}</div>
                   </div>
                   <div className="card-main-stat">
-                    <div className="card-main-stat-label">ATTACK:</div>
+                    <div className="card-main-stat-label">ATTACK</div>
                     <div className="card-main-stat-value">{`${p.attack}`}</div>
                   </div>
                   <div className="card-main-stat">
-                    <div className="card-main-stat-label">SP. DEF:</div>
+                    <div className="card-main-stat-label">SP. DEF</div>
                     <div className="card-main-stat-value">{`${p.spDef}`}</div>
                   </div>
                   <div className="card-main-stat">
-                    <div className="card-main-stat-label">DEFENSE:</div>
+                    <div className="card-main-stat-label">DEFENSE</div>
                     <div className="card-main-stat-value">{`${p.defense}`}</div>
                   </div>
                   <div className="card-main-stat">
-                    <div className="card-main-stat-label">SPEED:</div>
+                    <div className="card-main-stat-label">SPEED</div>
                     <div className="card-main-stat-value">{`${p.speed}`}</div>
                   </div>
                 </div>

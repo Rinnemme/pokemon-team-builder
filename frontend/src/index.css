@@ -22,7 +22,7 @@
 
   /* New tokens */
   --bg: #f4f6fb;
-  --gray: #bcbdc0;
+  --gray: #8a8c90;
 
   /* Type colors — unchanged */
   --grass: #b1e897;
@@ -263,6 +263,10 @@ header a.blue-text {
   overflow: hidden;
 }
 
+.card.card--on-team {
+  border-left-color: var(--dark-yellow);
+}
+
 .card:hover,
 .team:hover {
   box-shadow: 0 6px 20px rgba(7, 34, 78, 0.12);
@@ -420,7 +424,7 @@ header a.blue-text {
 .card-main-left {
   align-items: center;
   display: flex;
-  flex: 1;
+  flex: 1 0 180px;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
@@ -456,10 +460,8 @@ header a.blue-text {
 
 .card-main-right {
   display: flex;
-  flex: 1;
+  flex: 2 0 260px;
   flex-direction: column;
-  max-width: 300px;
-  min-width: 225px;
 }
 
 .card-main-header {
@@ -468,7 +470,7 @@ header a.blue-text {
   display: flex;
   font-size: 0.72em;
   font-weight: 700;
-  justify-content: center;
+  justify-content: flex-start;
   letter-spacing: 0.1em;
   padding: 12px 0 8px;
   text-transform: uppercase;
@@ -476,18 +478,21 @@ header a.blue-text {
 }
 
 .card-main-stat-table {
-  align-items: center;
   background-color: var(--light-yellow);
   border-radius: 8px;
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fit, 30%);
-  grid-template-rows: repeat(2, auto);
-  justify-content: center;
-  padding: 15px 10px;
+  gap: 8px 16px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 4px;
+  padding: 14px 12px;
 }
 
-.card-main-stat,
+.card-main-stat {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .card-main-damage {
   text-align: center;
 }
@@ -496,10 +501,9 @@ header a.blue-text {
   background-color: var(--light-blue);
   border-radius: 8px;
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fit, 15%);
-  justify-content: center;
-  padding: 15px 10px;
+  gap: 8px 4px;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 14px 12px;
 }
 
 .card-main-damage-label,

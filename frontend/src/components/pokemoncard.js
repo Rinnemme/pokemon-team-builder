@@ -87,7 +87,7 @@ const PokemonCard = ({ p }) => {
             </div>
           </div>
         </div>
-        {expanded && (
+        <div className={`card-expand-wrapper${expanded ? " card-expand-wrapper--open" : ""}`}>
           <div className="card-main">
             <div className="card-main-content">
               <div className="card-main-left">
@@ -281,7 +281,7 @@ const PokemonCard = ({ p }) => {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

@@ -406,6 +406,16 @@ header a.blue-text {
 
 /* Expanded card */
 
+.card-expand-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 350ms ease-in-out;
+}
+
+.card-expand-wrapper--open {
+  max-height: 700px;
+}
+
 .card-main {
   align-items: center;
   display: flex;
